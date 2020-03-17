@@ -24,9 +24,9 @@ export class items extends Component {
                     id={item._id}
                     hoverActive = {this.props.hoverActive}
                     toggleHoverState = {this.props.toggleHoverState}
-                     projectHover = {this.props.projectHover}
-                     showDelete = {this.props.showDelete}
-                     hideDeleteForm = {this.props.hideDeleteForm}
+                    projectHover = {this.props.projectHover}
+                    showDelete = {this.props.showDelete}
+                    hideDeleteForm = {this.props.hideDeleteForm}
                     showDeleteForm = {this.props.showDeleteForm}
                     deleteProduct = {this.props.deleteProduct}
                     showDelSuccess = {this.props.showDelSuccess}
@@ -35,9 +35,6 @@ export class items extends Component {
                     hideEditForm = {this.props.hideEditForm}
                     showEditForm = {this.props.showEditForm}
                     onChangeFnc = {this.props.onChangeFnc}
-                    editForm = {this.props.editForm}
-                    editProduct = {this.props.editProduct}
-                    selectedProd = {this.props.selectedProd}
                     />
                     </div>
                     

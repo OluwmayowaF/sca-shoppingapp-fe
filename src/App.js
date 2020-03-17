@@ -12,7 +12,7 @@ export class App extends Component {
 constructor(props) {
   super(props);
   this.form = React.createRef();
-  this.editForm = React.createRef();
+  
 }
 state={
   addBtn: "Add Product",
@@ -49,11 +49,15 @@ viewProducts = async () =>{
       }
   });
 
-  let data = await response.json();
-  if (data){
-      this.setState({items:data.data.sort()})
-      console.log(data.data);
-
+  let responseData = await response.json();
+  const {status, data} = responseData;
+  if (status === "success"){
+    let  { order} = data
+    order = order.sort((a,b) => new Date(a.createdAt) - new Date(b.createdAt))
+    this.setState({items:order})
+    console.log(order)
+  }else {
+    console.log(status)
   }
 } 
 // Update the state of the input fields
@@ -88,9 +92,12 @@ let response = await fetch(addProductUrl,{
   mode:'cors',
   body,
 });
-let data = await response.json();
-console.log(data)
-if(data.msg === "Order Created Successfully"){
+let responseData = await response.json();
+const {status, data} = responseData
+
+
+if(status === "success"){
+  console.log(data)
   this.viewProducts();
   this.setState({addBtn: 'Add Product',
       name:"",
@@ -104,7 +111,7 @@ if(data.msg === "Order Created Successfully"){
   })
 }else{
   this.setState({showFailure: true})
-
+  console.log (responseData.error)
 }
 
 
@@ -158,7 +165,7 @@ deleteProduct = async (event) =>{
     });
 
     let data = await response.json();
-    if (data.msg === 'Order Deleted'){
+    if (data.status === 'success'){
       this.setState({showDelSuccess: true})
       setTimeout(() => this.viewProducts() , 1000);
 
@@ -173,10 +180,9 @@ deleteProduct = async (event) =>{
   }
 }
 // function to show edit form modal
-showEditForm =(event)=>{
+showEditForm =()=>{
   this.setState({
-    showEdit:true,
-    selectedProd:event.target.id,
+    showEdit:true
   })
 
 }
@@ -227,9 +233,6 @@ hideEditForm =()=>{
       showEdit = {this.state.showEdit}
       hideEditForm = {this.hideEditForm}
       showEditForm = {this.showEditForm}
-      editForm = {this.editForm}
-      editProduct = {this.editProduct}
-      selectedProd = {this.state.selectedProd}
       onChangeFnc = {this.onChangeFnc}
       />
      

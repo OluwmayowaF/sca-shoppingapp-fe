@@ -93,23 +93,19 @@ export class item extends Component {
             <div>
             <Modal show={this.props.showEdit} onHide={this.props.hideEditForm}>
                 <Modal.Body>
-                    <EditOrder
+                <EditOrder
                     addProduct = {this.props.addProduct}
                     onChangeFnc = {this.props.onChangeFnc}
                     image ={this.props.image}
-                addBtn = {this.props.addBtn}
-                name = {this.props.name}
-                brand = {this.props.brand}
-                description = {this.props.description}
-                category = {this.props.category}
-                price = {this.props.price}
-                quantity = {this.props.quantity}
-                previewImage = {this.props.previewImage}
-                showSucess = {this.props.showSucess}
-                editForm = {this.props.editForm}
-                editProduct = {this.props.editProduct}
-                selectedProd = {this.props.selectedProd}
-                id= {this.props.id}
+                    name = {this.props.name}
+                    brand = {this.props.brand}
+                    description = {this.props.description}
+                    category = {this.props.category}
+                    price = {this.props.price}
+                    quantity = {this.props.quantity}
+                    previewImage = {this.props.previewImage}
+                    id= {this.props.id}
+                    hideEditForm = {this.props.hideEditForm}
                      />
                 </Modal.Body>
             </Modal>

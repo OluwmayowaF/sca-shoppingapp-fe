@@ -85,7 +85,8 @@ export class productForm extends Component {
                 value={this.props.addBtn}/> 
                 </div>
                 <div className="form-group col-md-6">
-                    <button type="cancel" onClick ={this.props.hideForm} className="btn btn-danger float-right">  Close  </button>
+                    <button type="cancel" onClick ={this.props.hideForm} 
+                    className="btn btn-danger float-right">  Close  </button>
                 </div>
                 </div>
                 
