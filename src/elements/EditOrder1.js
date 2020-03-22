@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export class EditOrder extends Component {
-    /*
+export class EditOrder1 extends Component {
+    
     state={
         editBtn: "Edit Product",
-       /* name: this.props.name,
+        name: this.props.name,
         brand:this.props.brand,
         description: this.props.description,
         category:this.props.category,
@@ -12,8 +12,8 @@ export class EditOrder extends Component {
         quantity:this.props.quantity,
         selectedProd:this.props.id,
         showSucess: false,
-        showFailure: false,*/
-        name:'',
+        showFailure: false,
+       /* name:'',
         brand:'',
         description: '',
         category:this.props.category,
@@ -21,7 +21,7 @@ export class EditOrder extends Component {
         quantity:this.props.quantity,
         selectedProd:this.props.id,
         showSucess: false,
-        showFailure: false,
+        showFailure: false,*/
 
     }
     onChangeFnc = (e)=>{
@@ -50,6 +50,7 @@ export class EditOrder extends Component {
                 editBtn: "Edit Product",
                 showSucess: true,
               })
+              this.props.getProduct();
             console.log(data)
           }else {
             this.setState({
@@ -165,4 +166,4 @@ export class EditOrder extends Component {
     }
 }
 
-export default EditOrder
+export default EditOrder1

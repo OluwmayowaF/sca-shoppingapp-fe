@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Button} from 'react-bootstrap'
+import { Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 export class CustomerItem extends Component {

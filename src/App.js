@@ -10,6 +10,7 @@ import AdminControl from './pages/AdminControl';
 import Product from './pages/Product';
 import ShoppingCart from './pages/ShoppingCart'
 import Home from './pages/Home';
+import AdminControlProduct from './pages/AdminControlProduct';
 
 export class App extends Component {
 
@@ -26,9 +27,14 @@ export class App extends Component {
       <Route  exact path="/">
        <Home />
        </Route>
-       <Route   path="/adminControl">
+       {/*Admin related paths*/}
+       <Route  exact  path="/adminControl">
        <AdminControl />
        </Route>
+       <Route path="/adminControl/product/:productid"  
+            render={(props) => <AdminControlProduct {...props} 
+          
+            />} />
        <Route path="/product/:productid"  
             render={(props) => <Product {...props} 
           

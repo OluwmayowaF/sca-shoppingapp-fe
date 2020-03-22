@@ -131,50 +131,7 @@ constructor(props) {
             showDelete:false
         })
     }
-    // function to display delete product modal 
-    showDeleteForm =()=>{
-    this.setState({
-        showDelete:true
-    })
     
-    }
-    // function to hide delete product modal
-    hideDeleteForm =()=>{
-    this.setState({
-        showDelete:false,
-        showDelSuccess: false,
-        showDelFailure: false,
-    })
-    }
-    // function to delete a product
-    deleteProduct = async (event) =>{
-    const product_id = event.target.value;
-    const deleteProductUrl = `https://scashoppingapp-api.herokuapp.com/api/orders/${product_id}`
-    
-    try{
-        let response = await fetch (deleteProductUrl,{
-        method:'DELETE',
-        mode:'cors',
-        headers:{
-            Accept:'application/json'
-        }
-        });
-    
-        let data = await response.json();
-        if (data.status === 'success'){
-        this.setState({showDelSuccess: true})
-        setTimeout(() => this.viewProducts() , 1000);
-    
-        }else {
-        this.setState({showDelFailure: true})
-        }
-        
-    
-    
-    }catch(error){
-        console.log(error)
-    }
-    }
     // function to show edit form modal
     showEditForm =()=>{
     this.setState({

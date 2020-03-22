@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import {IconContext} from 'react-icons'
-import { FaWindowClose } from "react-icons/fa";
-import {  FiEye } from "react-icons/fi";
-import { Button, Modal, Col} from 'react-bootstrap'
+import {  Modal, Col} from 'react-bootstrap'
 import DeleteOrder from './DeleteOrder';
 import EditOrder from './EditOrder';
 import { Link } from 'react-router-dom';
@@ -32,10 +29,10 @@ export class item extends Component {
         return (
             <React.Fragment>
                 <Col  className='Shopping-item'>
-           <Link  to={ `/product/${this.props.id}`}>
+           <Link  to={ `/adminControl/product/${this.props.id}`}>
           
                     <div className='item-image' style={{ backgroundImage:`url(${imageLink}${this.props.image})`}} >
-                    {
+                    {/*
                    !this.state.hoverActive ? <div style={{ width:'100%', padding:'1em'}}> <IconContext.Provider value={{ color: "#19CECE",  className: "global-class-name float-right", size:'24px' }}>
                             <FiEye onClick={this.projectHover} />
                             </IconContext.Provider> </div> :
@@ -62,7 +59,7 @@ export class item extends Component {
                             </IconContext.Provider>
                             
                         </div>
-                    }
+                    */}
                     </div>
                 
                 <h5>{this.props.name}</h5> 
