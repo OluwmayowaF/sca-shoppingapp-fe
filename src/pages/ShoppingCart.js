@@ -4,7 +4,7 @@ import ProdHeader from '../layout/ProdHeader'
 import { Container } from 'react-bootstrap'
 import { Row, Col, Button } from 'react-bootstrap'
 import swal from 'sweetalert'
-import { IconContext } from 'react-icons/lib/cjs'
+import { IconContext } from 'react-icons'
 import { FaArrowLeft } from 'react-icons/fa'
 
 export class ShoppingCart extends Component {
@@ -17,23 +17,17 @@ export class ShoppingCart extends Component {
     componentDidMount = () =>{
         //this.getTotal();
 console.log(this.state.cart.length)
-        if(this.state.cart.length >1 ){
+        if(this.state.cart.length > 0 ){
             setTimeout(
                 () => this.getTotal(),
-                1000
+                500
               );
 
-        }
-        
-           
-          
+        }          
     }
-
-
-  
+ 
     getTotal = () =>{
         console.log(this.state.cart)
-   // if(this.state.cart.lenght > 1 ){
         let totalCart = Object.values(this.state.cart);
         if (this.state.cart.length > 1){
             totalCart = totalCart.reduce((a,b)=> Number (a.subtotal )+ Number( b.subtotal))
@@ -48,14 +42,14 @@ console.log(this.state.cart.length)
             this.setState({total:subTotal})
             console.log(totalCart) 
         }
-     // }
-       
     }
+    
 
     IncreaseItemQuantity = (cartitem) =>{
         console.log('adding')
        
-        let cart = JSON.parse(localStorage.getItem('cart'));
+       // let cart = JSON.parse(localStorage.getItem('cart'));
+       let cart = this.state.cart;
         let item = cart.find(item => {
             return item.id === cartitem;
         }) 
@@ -75,38 +69,42 @@ console.log(this.state.cart.length)
     reduceItemQuantity = (cartitem) =>{
         console.log('reducing')
        
-        let cart = JSON.parse(localStorage.getItem('cart'));
+        let cart = this.state.cart;
         let item = cart.find(item => {
             return item.id === cartitem;
         }) 
         console.log(cartitem)
-        if(item){
+        if(item && item.quantity > 1){
             item.quantity--;
                 item.subtotal = item.price* item.quantity
                 localStorage.setItem('cart', JSON.stringify(cart));
                 this.setState({  cart: JSON.parse(localStorage.getItem('cart'))})
                 this.getTotal();
+                
 
         }
     }
 
     deleteCartItem = (cartitem) =>{
         console.log('delete')
-       
-        let cart = JSON.parse(localStorage.getItem('cart'));
+        let cart = this.state.cart
         let item = cart.find(item => {
             return item ? item.id === cartitem : null;
         }) 
 
-        console.log(item.id, cartitem)
+        console.log(item, item.id, cartitem)
         if(item){
             const index = cart.indexOf(item);
-            if (index > -1) {
-                console.log(item, index)
-               cart =  cart.splice(index, 1, item);
+          
+           if (index > -1) {
+            console.log(item, index)
+              cart.splice(index, 1);
                localStorage.setItem('cart', JSON.stringify(cart));
                this.setState({  cart: JSON.parse(localStorage.getItem('cart'))})
-               this.getTotal();
+               if(this.state.cart.length !== 0){
+                this.getTotal();
+               }
+               
             
             }
               
@@ -136,7 +134,7 @@ console.log(this.state.cart.length)
                 </Row>
 
                 <Row>
-                    <h3 style={{color:'#696969'}} className='mb-5 mt-5 text-center'>Shopping Bag</h3>
+                    <h3 style={{color:'#696969'}} className='mb-5 mt-2 text-center'>Shopping Bag</h3>
                 </Row>
                
             <Row style={{color:'#A9A9A9'}}>

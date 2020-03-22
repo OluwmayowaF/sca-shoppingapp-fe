@@ -4,6 +4,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from 'react-router-dom';
 import AdminControl from './pages/AdminControl';
 import Product from './pages/Product';
@@ -21,7 +22,7 @@ export class App extends Component {
 
       <Router>
       <React.Fragment>
-       
+      <Switch>
       <Route  exact path="/">
        <Home />
        </Route>
@@ -36,7 +37,7 @@ export class App extends Component {
             render={(props) => <ShoppingCart {...props} 
           
             />} />
-      
+            </Switch>
        </React.Fragment>
       
 

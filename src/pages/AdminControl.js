@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Header from '../layout/header';
 import Items from '../layout/items';
 import AddProduct from '../layout/addProduct';
-import ShoppingCart from '../elements/shoppingCart';
-
 
 export class AdminControl extends Component {
 
@@ -199,8 +197,7 @@ constructor(props) {
        displayForm = {this.displayForm}
        hideForm = {this.hideForm}/>
    
-       <ShoppingCart />
-      
+    
        <AddProduct  
        addProduct = {this.addProduct}
        onChangeFnc = {this.onChangeFnc}
