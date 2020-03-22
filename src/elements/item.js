@@ -29,7 +29,7 @@ export class item extends Component {
         return (
             <React.Fragment>
                 <Col  className='Shopping-item'>
-           <Link  to={ `/adminControl/product/${this.props.id}`}>
+           <Link style={{textDecoration:'none'}}  to={ `/adminControl/product/${this.props.id}`}>
           
                     <div className='item-image' style={{ backgroundImage:`url(${imageLink}${this.props.image})`}} >
                     {/*
