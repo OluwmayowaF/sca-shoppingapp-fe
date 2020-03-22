@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 export class EditOrder extends Component {
+    /*
     state={
         editBtn: "Edit Product",
        /* name: this.props.name,
@@ -13,7 +14,15 @@ export class EditOrder extends Component {
         showSucess: false,
         showFailure: false,*/
         name:'',
-        
+        brand:'',
+        description: '',
+        category:this.props.category,
+        price:this.props.price,
+        quantity:this.props.quantity,
+        selectedProd:this.props.id,
+        showSucess: false,
+        showFailure: false,
+
     }
     onChangeFnc = (e)=>{
         this.setState({

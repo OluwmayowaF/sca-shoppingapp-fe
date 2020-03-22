@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ProductForm from '../elements/productForm'
-import { Button, Modal} from 'react-bootstrap'
+import { Modal} from 'react-bootstrap'
 
 export class addProduct extends Component {
     

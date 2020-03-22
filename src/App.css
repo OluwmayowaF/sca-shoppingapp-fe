@@ -128,13 +128,12 @@
 .item-image {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    background-color: rgb(37, 47, 37);
-    background-size: cover;
+    flex-direction: row;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 50vh;
     border-radius: 2em;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 }

@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import {IconContext} from 'react-icons'
 import { FaWindowClose } from "react-icons/fa";
 import {  FiEye } from "react-icons/fi";
-import { Button, Modal} from 'react-bootstrap'
+import { Button, Modal, Col} from 'react-bootstrap'
 import DeleteOrder from './DeleteOrder';
 import EditOrder from './EditOrder';
+import { Link } from 'react-router-dom';
 
 export class item extends Component {
     constructor(props){
@@ -30,10 +31,10 @@ export class item extends Component {
         const imageLink = `https://res.cloudinary.com/oluwamayowaf/image/upload/v1584127777/`;
         return (
             <React.Fragment>
-            <div className='Shopping-item'>
-                
-                
-                    <div className='item-image' style={{ backgroundImage:`url(${imageLink}${this.props.image})`, display:'flex', flexDirection:'row',alignItems:'flex-end'}} >
+                <Col  className='Shopping-item'>
+           <Link  to={ `/product/${this.props.id}`}>
+          
+                    <div className='item-image' style={{ backgroundImage:`url(${imageLink}${this.props.image})`}} >
                     {
                    !this.state.hoverActive ? <div style={{ width:'100%', padding:'1em'}}> <IconContext.Provider value={{ color: "#19CECE",  className: "global-class-name float-right", size:'24px' }}>
                             <FiEye onClick={this.projectHover} />
@@ -64,12 +65,13 @@ export class item extends Component {
                     }
                     </div>
                 
-                <h5>{this.props.name}</h5>
+                <h5>{this.props.name}</h5> 
                 <p>{this.props.brand}</p>
-                <p className='amount'>${this.props.price}</p>
+                <p className='amount'>${this.props.price}</p> </Link>
               
-              
-            </div>
+                
+           
+            </Col>
            
             <React.Fragment>
             <Modal show={this.props.showDelete} onHide={this.props.hideDeleteForm}>
@@ -106,7 +108,7 @@ export class item extends Component {
                     previewImage = {this.props.previewImage}
                     id= {this.props.id}
                     hideEditForm = {this.props.hideEditForm}
-                     />
+                    />
                 </Modal.Body>
             </Modal>
 

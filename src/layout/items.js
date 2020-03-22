@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Item from '../elements/item';
-
+import {Container, Row, Col} from 'react-bootstrap'
 
 export class items extends Component {
 
@@ -8,11 +8,12 @@ export class items extends Component {
    
  render() {
         return (
-            <div className='row'>
-            <div className = 'item-grid'>
+            <Container>
+           <Row>
+           {/* <div className = 'item-grid'> */}
             {this.props.items !== null ?
                     this.props.items.map((item, key)=>(
-                        <div key={item._id}> 
+                        <Col  lg={4} sm={1} md={4} key={item._id}> 
                         <Item 
                     name = {item.name}
                     brand = {item.brand ? item.brand: 'not-set'} 
@@ -36,7 +37,7 @@ export class items extends Component {
                     showEditForm = {this.props.showEditForm}
                     onChangeFnc = {this.props.onChangeFnc}
                     />
-                    </div>
+                    </Col>
                     
                      )
 
@@ -44,10 +45,12 @@ export class items extends Component {
                     null}
                
 
-            </div>
+            {/*</div>>*/}
+            
+            </Row>
                 
-                
-            </div>
+            
+            </Container>
         )
     }
 }

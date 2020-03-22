@@ -1,20 +1,30 @@
 import React from 'react';
-import {Button }from 'react-bootstrap';
+import {Button, Navbar, Nav }from 'react-bootstrap';
+
 
 export default function header(props) {
-    return (
-        <div className="App-header row p-3">
-          <div className='col-6'>
-          <h3 className='pl-4'>MBS.co</h3>
-
-          </div>
-          <div className='col-6 pr-4'>
-          <Button variant="primary header-button float-right" onClick={props.displayForm}>
+    return (  
+  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Navbar.Brand href="#" >MBS.CO</Navbar.Brand>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="mr-auto">
+     
+    </Nav>
+    <Nav>
+    <Button variant="outline-light" onClick={props.displayForm}>
        Add a Product
-      </Button>
-          </div>
-        
-         
-        </div>
+      </Button> 
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
+    
+  
+
+     
+     
+
+      
+      
     )
 }
