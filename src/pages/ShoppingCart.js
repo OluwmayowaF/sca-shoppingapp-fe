@@ -28,9 +28,14 @@ console.log(this.state.cart.length)
  
     getTotal = () =>{
         console.log(this.state.cart)
-        let totalCart = Object.values(this.state.cart);
+        let totalCart =[]
+      
+       
         if (this.state.cart.length > 1){
-            totalCart = totalCart.reduce((a,b)=> Number (a.subtotal )+ Number( b.subtotal))
+            for (let i = 0; i < this.state.cart.length; i++){
+                totalCart.push(this.state.cart[i].subtotal)   
+              }
+            totalCart = totalCart.reduce((a,b)=> a + b)
             this.setState({total:totalCart})
             console.log(totalCart)
            
@@ -116,6 +121,7 @@ console.log(this.state.cart.length)
             icon: 'success'
         })
         this.setState({cart:localStorage.removeItem('cart')});
+        this.props.history.push('/')
 
     }
 
@@ -148,7 +154,7 @@ console.log(this.state.cart.length)
             <hr></hr>
             
                  
-                   { this.state.cart.map((carts, key) => (
+                   {  this.state.cart.map((carts, key) => (
                     <div key={carts.id}>
                    <CartItem 
                    name ={carts.name}

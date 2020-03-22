@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col} from 'react-bootstrap'
+import { Col, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 export class CustomerItem extends Component {
@@ -19,6 +19,8 @@ export class CustomerItem extends Component {
                 <p className='amount'>${this.props.price}</p> 
                
                 </Link>
+
+              
                 
               
             </Col>

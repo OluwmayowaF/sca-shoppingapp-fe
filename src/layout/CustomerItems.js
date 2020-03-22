@@ -24,6 +24,7 @@ export class CustomerItems extends Component {
                     quantity = {item.quantity}
                     category = {item.category}
                     id={item._id}
+                    addToCart = {this.props.addToCart}
                     />
                     </Col>
                     
